@@ -1,0 +1,40 @@
+{
+  "version": "0.1.0",
+  "description": "Some description",
+  "proposedName": "Apostro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+  },
+  "source": {
+    "shasum": "GVowOdzziXph7DOQGCukvS+LFHiNaWTmTYLHL2pf9s8=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "images/icon.svg",
+        "packageName": "snap",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_dialog": {},
+    "endowment:transaction-insight": {
+      "allowTransactionOrigin": true
+    },
+    "endowment:cronjob": {
+      "jobs": [
+        {
+          "expression": "*/1 * * * *",
+          "request": {
+            "method": "execute"
+          }
+        }
+      ]
+    },
+    "snap_notify": {},
+    "endowment:network-access": {},
+    "endowment:ethereum-provider": {}
+  },
+  "manifestVersion": "0.1"
+}
