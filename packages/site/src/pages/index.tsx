@@ -1,13 +1,14 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
+
 import {
   Card,
   ConnectButton,
   InstallFlaskButton,
   ReconnectButton,
-  SendTransactionToBadRatingProtocol,
-  SendTransactionToProtocol,
-  SendTransactionToUnknownProtocol,
+  SendTransactionToAaveV3,
+  SendTransactionToIronBank,
+  SendTransactionToUnsupportedProtocol,
   SendTransactionToUser,
 } from '../components';
 import { defaultSnapOrigin } from '../config';
@@ -16,9 +17,9 @@ import {
   connectSnap,
   getSnap,
   isLocalSnap,
-  sendTransactionToBadRatingProtocol,
-  sendTransactionToProtocol,
-  sendTransactionToUnknownProtocol,
+  sendTransactionToAaveV3,
+  sendTransactionToIronBank,
+  sendTransactionToUnsupportedProtocol,
   sendTransactionToUser,
   shouldDisplayReconnectButton,
 } from '../utils';
@@ -46,7 +47,7 @@ const Heading = styled.h1`
 `;
 
 const Span = styled.span`
-  color: ${(props) => props.theme.colors.primary.default};
+  color: ${(props) => props.theme.colors.primary?.default};
 `;
 
 const Subtitle = styled.p`
@@ -70,10 +71,29 @@ const CardContainer = styled.div`
   margin-top: 1.5rem;
 `;
 
+const Notice = styled.div`
+  background-color: ${({ theme }) => theme.colors.background?.alternative};
+  border: 1px solid ${({ theme }) => theme.colors.border?.default};
+  color: ${({ theme }) => theme.colors.text?.alternative};
+  border-radius: ${({ theme }) => theme.radii.default};
+  padding: 2.4rem;
+  margin-top: 2.4rem;
+  max-width: 60rem;
+  width: 100%;
+
+  & > * {
+    margin: 0;
+  }
+  ${({ theme }) => theme.mediaQueries.small} {
+    margin-top: 1.2rem;
+    padding: 1.6rem;
+  }
+`;
+
 const ErrorMessage = styled.div`
-  background-color: ${({ theme }) => theme.colors.error.muted};
-  border: 1px solid ${({ theme }) => theme.colors.error.default};
-  color: ${({ theme }) => theme.colors.error.alternative};
+  background-color: ${({ theme }) => theme.colors.error?.muted};
+  border: 1px solid ${({ theme }) => theme.colors.error?.default};
+  color: ${({ theme }) => theme.colors.error?.alternative};
   border-radius: ${({ theme }) => theme.radii.default};
   padding: 2.4rem;
   margin-bottom: 2.4rem;
@@ -104,45 +124,45 @@ const Index = () => {
         type: MetamaskActions.SetInstalled,
         payload: installedSnap,
       });
-    } catch (e) {
-      console.error(e);
-      dispatch({ type: MetamaskActions.SetError, payload: e });
+    } catch (error) {
+      console.error(error);
+      dispatch({ type: MetamaskActions.SetError, payload: error });
     }
   };
 
   const handleSendToUser = async () => {
     try {
       await sendTransactionToUser();
-    } catch (e) {
-      console.error(e);
-      dispatch({ type: MetamaskActions.SetError, payload: e });
+    } catch (error) {
+      console.error(error);
+      dispatch({ type: MetamaskActions.SetError, payload: error });
     }
   };
 
-  const handleSendToProtocol = async () => {
+  const handleSendToAaveV3 = async () => {
     try {
-      await sendTransactionToProtocol();
-    } catch (e) {
-      console.error(e);
-      dispatch({ type: MetamaskActions.SetError, payload: e });
+      await sendTransactionToAaveV3();
+    } catch (error) {
+      console.error(error);
+      dispatch({ type: MetamaskActions.SetError, payload: error });
     }
   };
 
-  const handleSendTransactionToBadRatingProtocol = async () => {
+  const handleSendToIronBank = async () => {
     try {
-      await sendTransactionToBadRatingProtocol();
-    } catch (e) {
-      console.error(e);
-      dispatch({ type: MetamaskActions.SetError, payload: e });
+      await sendTransactionToIronBank();
+    } catch (error) {
+      console.error(error);
+      dispatch({ type: MetamaskActions.SetError, payload: error });
     }
   };
 
-  const handleSendTransactionToUnknownProtocol = async () => {
+  const handleSendToUnsupportedProtocol = async () => {
     try {
-      await sendTransactionToUnknownProtocol();
-    } catch (e) {
-      console.error(e);
-      dispatch({ type: MetamaskActions.SetError, payload: e });
+      await sendTransactionToUnsupportedProtocol();
+    } catch (error) {
+      console.error(error);
+      dispatch({ type: MetamaskActions.SetError, payload: error });
     }
   };
 
@@ -204,25 +224,31 @@ const Index = () => {
           />
         )}
       </CardContainer>
+
       <CardContainer>
         <SendTransactionToUser onClick={handleSendToUser} />
       </CardContainer>
 
       <CardContainer>
-        <SendTransactionToProtocol onClick={handleSendToProtocol} />
+        <SendTransactionToAaveV3 onClick={handleSendToAaveV3} />
       </CardContainer>
 
       <CardContainer>
-        <SendTransactionToBadRatingProtocol
-          onClick={handleSendTransactionToBadRatingProtocol}
-        />
+        <SendTransactionToIronBank onClick={handleSendToIronBank} />
       </CardContainer>
 
       <CardContainer>
-        <SendTransactionToUnknownProtocol
-          onClick={handleSendTransactionToUnknownProtocol}
+        <SendTransactionToUnsupportedProtocol
+          onClick={handleSendToUnsupportedProtocol}
         />
       </CardContainer>
+
+      {state.installedSnap && (
+        <Notice>
+          Snap info: id - {state.installedSnap.id}, version -{' '}
+          {state.installedSnap.version}
+        </Notice>
+      )}
     </Container>
   );
 };
