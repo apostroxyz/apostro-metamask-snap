@@ -111,7 +111,10 @@ const ErrorMessage = styled.div`
 const Index = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
 
-  const isMetaMaskReady = isLocalSnap(defaultSnapOrigin)
+  // eslint-disable-next-line no-restricted-globals, no-nested-ternary
+  const isMetaMaskReady = process.env.PRODUCTION
+    ? state.snapsDetected
+    : isLocalSnap(defaultSnapOrigin)
     ? state.isFlask
     : state.snapsDetected;
 

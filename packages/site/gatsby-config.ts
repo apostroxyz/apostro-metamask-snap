@@ -7,6 +7,7 @@ const config: GatsbyConfig = {
   plugins: [
     'gatsby-plugin-svgr',
     'gatsby-plugin-styled-components',
+    '@vercel/gatsby-plugin-vercel-builder',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

@@ -106,7 +106,8 @@ export const HeaderButtons = ({
   state: MetamaskState;
   onConnectClick(): unknown;
 }) => {
-  if (!state.isFlask && !state.installedSnap) {
+  // eslint-disable-next-line no-restricted-globals
+  if (!process.env.PRODUCTION && !state.isFlask && !state.installedSnap) {
     return <InstallFlaskButton />;
   }
 
