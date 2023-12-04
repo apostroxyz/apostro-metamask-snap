@@ -1,19 +1,19 @@
-<h1 style='text-align: center'>Apostro Snap</h1>
-<div style='text-align: center'><img src='./packages/snap/images/logo.svg' alt='logo' /></div>
+<h1 align="center">Apostro Snap</h1>
+<p align="center"><img src='./packages/snap/images/logo.svg' alt='logo' /></p>
 
-<p style='text-align: center; margin: 20px auto;'>
-<a href='https://www.apostro.xyz/' target='_blank' rel='noopener noreferrer'>Website</a>
+<p align="center">
+<a href='https://www.apostro.xyz/'>Website</a>
 •
-<a href='https://explorer.apostro.xyz/' target='_blank' rel='noopener noreferrer'>App</a>
+<a href='https://explorer.apostro.xyz/'>App</a>
 •
-<a href='https://docs.apostro.xyz/' target='_blank' rel='noopener noreferrer'>Docs</a>
+<a href='https://docs.apostro.xyz/'>Docs</a>
 •
-<a href='https://twitter.com/apostroxyz' target='_blank' rel='noopener noreferrer'>Twitter</a>
+<a href='https://twitter.com/apostroxyz'>Twitter</a>
 </p>
 
 Apostro offers a straightforward way to check the credit ratings of lending protocols, helping you make informed investment decisions. It's a practical tool for anyone looking to understand and manage portfolio risks with ease. Whether you're a beginner or an experienced investor, Apostro guides you in identifying potential risks, ensuring smarter and safer investments.
 
-<div style='text-align: center'><img src='./images/tx-insight.png' alt='logo' /></div>
+<p align="center"><img src='./images/tx-insight.png' alt='logo' /></p>
 
 This repository contains Apostro Snap code and a frontend that connects to Snap.
 
