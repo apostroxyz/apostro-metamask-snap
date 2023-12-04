@@ -26,7 +26,7 @@
     "lint:misc": "prettier '**/*.json' '**/*.md' '!**/CHANGELOG.md' '**/*.yml' --ignore-path .gitignore",
     "start": "yarn workspaces foreach --parallel --interlaced --verbose run start",
     "test": "yarn workspace snap run test",
-    "version": "yarn workspace @apostroxyz/metamask-snap manifest"
+    "version": "yarn workspace @apostroxyz/metamask-snap manifest && git add ./packages/snap/snap.manifest.json"
   },
   "devDependencies": {
     "@lavamoat/allow-scripts": "^3.0.0",
