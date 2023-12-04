@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2020", "DOM"],
     "module": "CommonJS",
+    "resolveJsonModule": true,
     "moduleResolution": "node",
-    "useUnknownInCatchVariables": false,
-    "sourceMap": true,
+    "noEmit": true,
+    "noErrorTruncation": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
     "strict": true,
-    "target": "ES2017"
-  },
-  "exclude": ["**/__snapshots__/**", "**/test/**", "**/*.test.ts"]
+    "target": "es2020"
+  }
 }

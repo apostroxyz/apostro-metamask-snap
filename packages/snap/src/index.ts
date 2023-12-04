@@ -1,30 +1,42 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { rpcErrors } from '@metamask/rpc-errors';
-import {
-  OnCronjobHandler,
+import type {
   OnTransactionHandler,
   OnTransactionResponse,
-} from '@metamask/snaps-types';
-import { getNotifications } from './getNotifications';
-import { getTransactionInsights } from './getTransactionInsights';
+} from '@metamask/snaps-sdk';
+import { panel } from '@metamask/snaps-sdk';
+import { hexToBigInt } from '@metamask/utils';
+
+import { loadChainId, loadInsights } from './loadData';
+import { getErrorMessage, parseContent } from './utils';
 
 export const onTransaction: OnTransactionHandler = async ({
   transaction,
-  chainId,
-  transactionOrigin,
-}): Promise<OnTransactionResponse> => {
-  return getTransactionInsights(transaction);
-};
+}): Promise<OnTransactionResponse | null> => {
+  const chainId = await loadChainId();
 
-export const onCronjob: OnCronjobHandler = async ({ request }) => {
-  switch (request.method) {
-    case 'execute':
-      return getNotifications();
-    default:
-      throw rpcErrors.methodNotFound({
-        data: {
-          method: request.method,
-        },
-      });
+  if (!chainId) {
+    return getErrorMessage();
   }
+
+  const insights = await loadInsights({
+    chainId: hexToBigInt(chainId).toString(),
+    value: hexToBigInt(transaction.value ?? '0x0').toString(),
+    fromAddress: transaction.from,
+    data: transaction.data,
+    toAddress: transaction.to,
+  });
+
+  if (!insights || insights.components.length === 0) {
+    return getErrorMessage();
+  }
+
+  if (insights.severity) {
+    return {
+      content: panel(insights.components.map(parseContent)),
+      severity: insights.severity,
+    };
+  }
+
+  return {
+    content: panel(insights.components.map(parseContent)),
+  };
 };

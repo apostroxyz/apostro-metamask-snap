@@ -1,5 +1,7 @@
-import { resolve } from 'path';
 import type { SnapConfig } from '@metamask/snaps-cli';
+import { resolve } from 'path';
+
+import { version } from './package.json';
 
 const config: SnapConfig = {
   bundler: 'webpack',
@@ -9,6 +11,9 @@ const config: SnapConfig = {
   },
   polyfills: {
     buffer: true,
+  },
+  environment: {
+    VERSION: version,
   },
 };
 
