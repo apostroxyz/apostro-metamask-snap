@@ -33,8 +33,8 @@ Set up the development environment:
 yarn install && yarn start
 ```
 
-Snap server: http://localhost:8081/
-UI: http://localhost:3000/
+Snap server: http://localhost:8080/
+UI: http://localhost:8000/
 
 #### Connection to @apostroxyz/metamask-snap
 
