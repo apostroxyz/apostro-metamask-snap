@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Preview credit ratings of lending protocols - get valuable insights and make informed investment decision before any transaction takes place.Manage your portfolio risks with ease, whether you're a beginner or an experienced investor 🤓",
   "proposedName": "Apostro",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "https://github.com/apostroxyz/apostro-metamask-snap.git"
   },
   "source": {
-    "shasum": "rN+D1aUD1mTKepITh2r3SMnuWGOKMZrGfLxqI8csQQE=",
+    "shasum": "aA5KgMklV8mz4wzadC8g/nnkoZjHMeKvevPtwYJ2Tvg=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
