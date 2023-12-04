@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+
   parserOptions: {
     sourceType: 'module',
   },
@@ -8,20 +9,26 @@ module.exports = {
 
   overrides: [
     {
-      files: ['**/*.js'],
+      files: ['*.js'],
       extends: ['@metamask/eslint-config-nodejs'],
     },
 
     {
-      files: ['**/*.{ts,tsx}'],
+      files: ['*.ts', '*.tsx'],
       extends: ['@metamask/eslint-config-typescript'],
       rules: {
-        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+        '@typescript-eslint/restrict-template-expressions': [
+          'error',
+          { allowNullish: true },
+        ],
+        '@typescript-eslint/naming-convention': 'off',
+        camelcase: 'off',
+        '@typescript-eslint/camelcase': ['off'],
       },
     },
 
     {
-      files: ['**/*.test.ts', '**/*.test.js'],
+      files: ['*.test.ts', '*.test.js'],
       extends: ['@metamask/eslint-config-jest'],
       rules: {
         '@typescript-eslint/no-shadow': [
@@ -34,7 +41,6 @@ module.exports = {
   rules: {
     'jsdoc/require-jsdoc': 'off',
   },
-
   ignorePatterns: [
     '!.prettierrc.js',
     '**/!.eslintrc.js',
