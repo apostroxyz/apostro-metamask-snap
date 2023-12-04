@@ -23,13 +23,11 @@ jobs:
       with:
         node-version: '18.16.0'
         cache: 'yarn'
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - name: Setup npm
       run: |
         npm set @apostroxyz:registry=https://registry.npmjs.org/
-        npm set "//registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+        npm set "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}"
 
     - name: Setup git
       run: |
