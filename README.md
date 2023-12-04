@@ -34,9 +34,9 @@ yarn install && yarn start
 Snap server: http://localhost:8081/
 UI dapp: http://localhost:3000/
 
-#### Connection to @apostro/metamask-snap
+#### Connection to @apostroxyz/metamask-snap
 
-If you want to connect the frontend to the npm package `@apostro/metamask-snap`, you should uncomment `SNAP_ORIGIN` variable in the `./packages/site/.env.development` file
+If you want to connect the frontend to the npm package `@apostroxyz/metamask-snap`, you should uncomment `SNAP_ORIGIN` variable in the `./packages/site/.env.development` file
 
 #### Linting
 
