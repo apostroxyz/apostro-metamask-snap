@@ -50,3 +50,4 @@ jobs:
           yarn lerna publish --conventional-commits --conventional-prerelease --create-release github --loglevel debug --yes
         else
           yarn lerna publish --conventional-commits --conventional-graduate --create-release github --loglevel debug --yes
+        fi
