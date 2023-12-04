@@ -17,6 +17,8 @@ Apostro offers a straightforward way to check the credit ratings of lending prot
 
 This repository contains Apostro Snap code and a frontend that connects to Snap.
 
+MetaMask Snaps is a system that allows anyone to safely expand the capabilities of MetaMask. A snap is a program that we run in an isolated environment that can customize the wallet experience. For more details, see [the MetaMask documentation](https://docs.metamask.io/snaps/).
+
 ## Development
 
 ### Prerequisites
@@ -32,11 +34,11 @@ yarn install && yarn start
 ```
 
 Snap server: http://localhost:8081/
-UI dapp: http://localhost:3000/
+UI: http://localhost:3000/
 
-#### Connection to @apostro/metamask-snap
+#### Connection to @apostroxyz/metamask-snap
 
-If you want to connect the frontend to the npm package `@apostro/metamask-snap`, you should rename file `.env.development.dist` to `.env.development` in the `./packages/site` folder
+If you want to connect the frontend to the npm package `@apostroxyz/metamask-snap`, you should uncomment `SNAP_ORIGIN` variable in the `./packages/site/.env.development` file
 
 #### Linting
 

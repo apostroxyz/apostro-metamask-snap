@@ -8191,9 +8191,7 @@ __metadata:
     prettier: ^2.7.1
     prettier-plugin-packagejson: ^2.2.18
     sharp: ^0.30.7
-    site: "workspace:^"
     typescript: ^4.7.4
-    workspace: ^0.0.1-preview.1
   languageName: unknown
   linkType: soft
 
@@ -23201,7 +23199,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"site@workspace:^, site@workspace:packages/site":
+"site@workspace:packages/site":
   version: 0.0.0-use.local
   resolution: "site@workspace:packages/site"
   dependencies:
@@ -25869,13 +25867,6 @@ __metadata:
   version: 1.0.0
   resolution: "wordwrap@npm:1.0.0"
   checksum: 2a44b2788165d0a3de71fd517d4880a8e20ea3a82c080ce46e294f0b68b69a2e49cff5f99c600e275c698a90d12c5ea32aff06c311f0db2eb3f1201f3e7b2a04
-  languageName: node
-  linkType: hard
-
-"workspace@npm:^0.0.1-preview.1":
-  version: 0.0.1-preview.1
-  resolution: "workspace@npm:0.0.1-preview.1"
-  checksum: 0d3a1ed8a5735bd3295f2685a92cfd59a53d9386d6177e3dc036416e0b200729632a3760d9b34d75597b826e30620d7b02d9852c9bc2e0028c64436c9c5cda2e
   languageName: node
   linkType: hard
 
