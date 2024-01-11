@@ -1,5 +1,5 @@
 <h1 align="center">Apostro Snap</h1>
-<p align="center"><img src='./images/logo.svg' alt='logo' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/apostroxyz/apostro-metamask-snap/c2b121bd13c3dba4b0fdc8087f05934613c73eb7/packages/snap/images/logo.svg' alt='logo' /></p>
 
 <p align="center">
 <a href='https://www.apostro.xyz/'>Website</a>
@@ -13,7 +13,7 @@
 
 Apostro offers a straightforward way to check the credit ratings of lending protocols, helping you make informed investment decisions. It's a practical tool for anyone looking to understand and manage portfolio risks with ease. Whether you're a beginner or an experienced investor, Apostro guides you in identifying potential risks, ensuring smarter and safer investments.
 
-<p align="center"><img src='../../images/tx-insight.png' alt='logo' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/apostroxyz/apostro-metamask-snap/main/images/tx-insight.png' alt='tx insight' /></p>
 
 This repository contains Apostro Snap code and a frontend that connects to Snap.
 
@@ -34,6 +34,7 @@ yarn install && yarn start
 ```
 
 Snap server: http://localhost:8080/
+
 UI: http://localhost:8000/
 
 #### Connection to @apostroxyz/metamask-snap
